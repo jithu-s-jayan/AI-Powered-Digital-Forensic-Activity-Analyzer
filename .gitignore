@@ -4,5 +4,3 @@ __pycache__/
 .env
 datasets/*.csv
 !datasets/suspect_1_running_trace.csv
-models/*.cbm
-models/*.pkl
