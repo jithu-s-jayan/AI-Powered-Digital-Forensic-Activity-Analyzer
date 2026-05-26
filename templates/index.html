@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center min-h-[80vh]">
+    <!-- Text Content -->
+    <div class="md:w-1/2 flex flex-col gap-6" data-aos="fade-right" data-aos-duration="1000">
+        <div class="inline-block bg-glassBg border border-glassBorder rounded-full px-4 py-2 w-max text-sm text-neonCyan mb-2">
+            <i class="fa-solid fa-satellite-dish mr-2 animate-pulse"></i> v2.0 AI Engine Active
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+            Next-Gen <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan to-blue-500">
+                Digital Forensics
+            </span>
+        </h1>
+        <p class="text-gray-400 text-lg md:text-xl max-w-lg leading-relaxed">
+            Harness the power of machine learning to analyze smartphone sensor traces. Predict physical activities with high confidence to aid cyber investigations.
+        </p>
+        <div class="flex gap-4 mt-4">
+            <a href="/login" class="btn btn-info rounded-pill px-8 py-3 font-semibold shadow-[0_0_15px_rgba(0,243,255,0.4)] hover:shadow-[0_0_25px_rgba(0,243,255,0.6)] transition-all">
+                Start Investigation <i class="fa-solid fa-arrow-right ml-2"></i>
+            </a>
+            <a href="#features" class="btn btn-outline-light rounded-pill px-8 py-3 font-semibold bg-glassBg border-glassBorder backdrop-blur-md">
+                Learn More
+            </a>
+        </div>
+    </div>
+    
+    <!-- Hero Image/Animation -->
+    <div class="md:w-1/2 mt-16 md:mt-0 relative" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+        <div class="absolute inset-0 bg-neonCyan opacity-20 blur-[100px] rounded-full"></div>
+        <div class="relative bg-glassBg border border-glassBorder rounded-3xl p-8 backdrop-blur-xl shadow-2xl transform hover:scale-105 transition duration-500">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold"><i class="fa-solid fa-chart-line text-neonCyan mr-2"></i> Live Analysis</h3>
+                <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs animate-pulse">Processing</span>
+            </div>
+            <!-- Mock Chart -->
+            <div class="h-48 w-full border-b border-l border-gray-600 relative flex items-end justify-between px-2 pb-2">
+                <div class="w-1/6 bg-gradient-to-t from-blue-600 to-neonCyan rounded-t h-[40%] hover:h-[45%] transition-all"></div>
+                <div class="w-1/6 bg-gradient-to-t from-blue-600 to-neonCyan rounded-t h-[70%] hover:h-[75%] transition-all"></div>
+                <div class="w-1/6 bg-gradient-to-t from-blue-600 to-neonCyan rounded-t h-[30%] hover:h-[35%] transition-all"></div>
+                <div class="w-1/6 bg-gradient-to-t from-blue-600 to-neonCyan rounded-t h-[90%] hover:h-[95%] transition-all"></div>
+                <div class="w-1/6 bg-gradient-to-t from-blue-600 to-neonCyan rounded-t h-[60%] hover:h-[65%] transition-all"></div>
+            </div>
+            <div class="mt-6 space-y-3">
+                <div class="flex justify-between text-sm">
+                    <span class="text-gray-400">Walking</span>
+                    <span class="text-neonCyan font-mono">87.5%</span>
+                </div>
+                <div class="w-full bg-gray-800 rounded-full h-2">
+                    <div class="bg-neonCyan h-2 rounded-full" style="width: 87.5%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<section id="features" class="py-20 relative">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Core Capabilities</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="bg-glassBg border border-glassBorder p-8 rounded-2xl backdrop-blur-md hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-14 h-14 bg-blue-900/50 rounded-xl flex items-center justify-center text-neonCyan text-2xl mb-6">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">CatBoost ML Engine</h3>
+                <p class="text-gray-400">State-of-the-art gradient boosting model trained on complex physical activity datasets for high-accuracy predictions.</p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="bg-glassBg border border-glassBorder p-8 rounded-2xl backdrop-blur-md hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-14 h-14 bg-blue-900/50 rounded-xl flex items-center justify-center text-neonCyan text-2xl mb-6">
+                    <i class="fa-solid fa-file-csv"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Sensor Trace Analysis</h3>
+                <p class="text-gray-400">Upload CSV logs of accelerometer and gyroscope data to automatically reconstruct a subject's timeline.</p>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="bg-glassBg border border-glassBorder p-8 rounded-2xl backdrop-blur-md hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-14 h-14 bg-blue-900/50 rounded-xl flex items-center justify-center text-neonCyan text-2xl mb-6">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Forensic Reporting</h3>
+                <p class="text-gray-400">Generate court-ready PDF documents detailing the AI confidence scores and visualized activity timelines.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

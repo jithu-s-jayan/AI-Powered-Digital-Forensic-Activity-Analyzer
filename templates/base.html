@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Forensic Analyzer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neonCyan: '#00f3ff',
+                        darkBg: '#0a0a0f',
+                        glassBg: 'rgba(255, 255, 255, 0.05)',
+                        glassBorder: 'rgba(255, 255, 255, 0.1)'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-darkBg text-white overflow-x-hidden font-sans">
+    
+    <!-- Particles Background -->
+    <div id="particles-js" class="fixed top-0 left-0 w-full h-full -z-10"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent border-b border-glassBorder backdrop-blur-md sticky-top">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand font-bold text-neonCyan flex items-center gap-2" href="/">
+                <i class="fa-solid fa-microchip"></i>
+                CyberForensics AI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3 items-center">
+                    <li class="nav-item">
+                        <a class="nav-link text-white hover:text-neonCyan transition" href="/">Home</a>
+                    </li>
+                    <!-- Auth placeholders - manipulated by JS -->
+                    <li class="nav-item" id="nav-login">
+                        <a class="btn btn-outline-info rounded-pill px-4" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item" id="nav-dashboard" style="display: none;">
+                        <a class="btn btn-info rounded-pill px-4 text-dark" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item" id="nav-logout" style="display: none;">
+                        <button class="btn btn-outline-danger rounded-pill px-4" onclick="logout()">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="min-h-screen">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="border-t border-glassBorder py-4 mt-12 text-center text-gray-500 backdrop-blur-sm">
+        <p>&copy; 2026 CyberForensics AI Laboratory. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

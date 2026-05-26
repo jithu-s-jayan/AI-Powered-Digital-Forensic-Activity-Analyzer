@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto px-6 py-20 flex justify-center items-center min-h-[80vh]">
+    <div class="bg-glassBg border border-glassBorder p-10 rounded-3xl backdrop-blur-xl w-full max-w-md shadow-2xl relative overflow-hidden" data-aos="zoom-in">
+        <!-- Glow effect -->
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-neonCyan opacity-20 blur-[50px] rounded-full"></div>
+        
+        <div class="text-center mb-8 relative z-10">
+            <h2 class="text-3xl font-bold mb-2">Investigator Login</h2>
+            <p class="text-gray-400 text-sm">Access the forensic dashboard</p>
+        </div>
+        
+        <form id="login-form" class="space-y-6 relative z-10">
+            <div id="login-error" class="text-red-500 text-sm hidden bg-red-500/10 p-3 rounded border border-red-500/50"></div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <input type="email" id="email" required
+                           class="w-full bg-darkBg border border-gray-700 rounded-lg pl-10 pr-4 py-3 text-white focus:outline-none focus:border-neonCyan focus:ring-1 focus:ring-neonCyan transition">
+                </div>
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">Password</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <input type="password" id="password" required
+                           class="w-full bg-darkBg border border-gray-700 rounded-lg pl-10 pr-4 py-3 text-white focus:outline-none focus:border-neonCyan focus:ring-1 focus:ring-neonCyan transition">
+                </div>
+            </div>
+            
+            <div class="flex items-center justify-between text-sm">
+                <label class="flex items-center text-gray-400">
+                    <input type="checkbox" class="mr-2 rounded border-gray-700 bg-darkBg text-neonCyan focus:ring-neonCyan">
+                    Remember me
+                </label>
+                <a href="#" class="text-neonCyan hover:underline">Forgot password?</a>
+            </div>
+            
+            <button type="submit" id="login-btn" class="w-full btn btn-info py-3 rounded-lg font-bold shadow-[0_0_15px_rgba(0,243,255,0.4)] hover:shadow-[0_0_25px_rgba(0,243,255,0.6)] transition-all">
+                <span>Login to System</span>
+            </button>
+        </form>
+        
+        <p class="text-center mt-6 text-gray-400 text-sm relative z-10">
+            Don't have clearance? <a href="/signup" class="text-neonCyan hover:underline font-bold">Request Access</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

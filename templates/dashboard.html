@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex">
+    <!-- Sidebar -->
+    <aside class="w-64 sidebar border-r border-glassBorder glass-panel hidden md:block">
+        <div class="p-6">
+            <h3 class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-4">Menu</h3>
+            <ul class="space-y-2">
+                <li>
+                    <a href="/dashboard" class="flex items-center p-3 text-white rounded-lg nav-item-active transition">
+                        <i class="fa-solid fa-chart-pie w-6"></i>
+                        <span>Overview</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/upload" class="flex items-center p-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition">
+                        <i class="fa-solid fa-cloud-arrow-up w-6"></i>
+                        <span>New Analysis</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition">
+                        <i class="fa-solid fa-clock-rotate-left w-6"></i>
+                        <span>History</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition">
+                        <i class="fa-solid fa-gear w-6"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-8">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-3xl font-bold">Investigation Overview</h2>
+            <div class="flex items-center gap-4">
+                <span id="user-display-name" class="text-gray-300">Investigator</span>
+                <img src="https://ui-avatars.com/api/?name=Investigator&background=0D8ABC&color=fff" alt="User" class="w-10 h-10 rounded-full border-2 border-neonCyan">
+            </div>
+        </div>
+
+        <!-- Stats row -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="glass-panel p-6 rounded-2xl hover-glow" data-aos="fade-up" data-aos-delay="100">
+                <h4 class="text-gray-400 text-sm mb-2">Total Analyses</h4>
+                <div class="text-3xl font-bold text-white">24</div>
+                <div class="text-green-400 text-sm mt-2"><i class="fa-solid fa-arrow-up"></i> 12% this week</div>
+            </div>
+            <div class="glass-panel p-6 rounded-2xl hover-glow" data-aos="fade-up" data-aos-delay="200">
+                <h4 class="text-gray-400 text-sm mb-2">High Confidence Preds</h4>
+                <div class="text-3xl font-bold text-neonCyan">89.4%</div>
+                <div class="text-gray-500 text-sm mt-2">Avg. confidence score</div>
+            </div>
+            <div class="glass-panel p-6 rounded-2xl hover-glow" data-aos="fade-up" data-aos-delay="300">
+                <h4 class="text-gray-400 text-sm mb-2">Most Frequent Activity</h4>
+                <div class="text-3xl font-bold text-white">Walking</div>
+                <div class="text-gray-500 text-sm mt-2">34% of all detected</div>
+            </div>
+            <div class="glass-panel p-6 rounded-2xl border-neonCyan/50 bg-neonCyan/5 hover-glow" data-aos="fade-up" data-aos-delay="400">
+                <h4 class="text-neonCyan text-sm mb-2">Status</h4>
+                <div class="text-2xl font-bold text-white flex items-center gap-2">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neonCyan opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-neonCyan"></span>
+                    </span>
+                    System Online
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Main Chart Area -->
+            <div class="lg:col-span-2 glass-panel p-6 rounded-2xl" data-aos="fade-up">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-bold">Activity Heatmap (Last 7 Days)</h3>
+                    <button class="btn btn-sm btn-outline-info rounded-pill"><i class="fa-solid fa-download"></i> Export</button>
+                </div>
+                <div class="h-80 w-full flex items-center justify-center text-gray-500 border border-dashed border-gray-700 rounded-xl">
+                    <!-- Placeholder for Chart.js -->
+                    <canvas id="heatmapChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Recent Activity List -->
+            <div class="glass-panel p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-xl font-bold mb-6">Recent Investigations</h3>
+                <div class="space-y-4">
+                    <div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-neonCyan/50 transition cursor-pointer">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold">Subject_A_Trace.csv</span>
+                            <span class="text-xs text-gray-400">2h ago</span>
+                        </div>
+                        <div class="text-sm text-gray-400">Dominant: Driving (92%)</div>
+                    </div>
+                    <div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-neonCyan/50 transition cursor-pointer">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold">Suspect_Phone_Log.sqlite</span>
+                            <span class="text-xs text-gray-400">5h ago</span>
+                        </div>
+                        <div class="text-sm text-gray-400">Dominant: Walking (85%)</div>
+                    </div>
+                    <div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-neonCyan/50 transition cursor-pointer">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold">Device_7742_Data.csv</span>
+                            <span class="text-xs text-gray-400">1d ago</span>
+                        </div>
+                        <div class="text-sm text-gray-400">Dominant: Running (78%)</div>
+                    </div>
+                </div>
+                <a href="/upload" class="btn btn-info w-full mt-6 rounded-lg shadow-[0_0_10px_rgba(0,243,255,0.3)]">
+                    <i class="fa-solid fa-plus mr-2"></i> New Analysis
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Set user display name from Firebase or Mock Session
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            document.getElementById('user-display-name').textContent = user.displayName || user.email;
+        } else if (sessionStorage.getItem('mock_user') === 'true') {
+            document.getElementById('user-display-name').textContent = sessionStorage.getItem('mock_name') || 'Demo Investigator';
+        }
+    });
+
+    // Mock Chart
+    const ctx = document.getElementById('heatmapChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+                label: 'Activity Events',
+                data: [12, 19, 3, 5, 2, 3, 9],
+                borderColor: '#00f3ff',
+                backgroundColor: 'rgba(0, 243, 255, 0.1)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: {
+                    grid: { color: 'rgba(255,255,255,0.05)' },
+                    ticks: { color: '#9ca3af' }
+                },
+                x: {
+                    grid: { color: 'rgba(255,255,255,0.05)' },
+                    ticks: { color: '#9ca3af' }
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}
